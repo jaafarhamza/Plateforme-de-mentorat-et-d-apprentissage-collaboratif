@@ -35,23 +35,6 @@ class CategoryController extends Controller
         }
     }
 
-    public function Parent($id)
-    {
-        try {
-            $categories = $this->categoryService->getCategoriesParent($id);
-            return response()->json([
-                'status' => true,
-                'data' => $categories
-            ], Response::HTTP_OK);
-        }
-        catch (\Exception $e) {
-            // \Log::error("error getting categories: " . $e->getMessage());
-            return response()->json([
-                'status' => false,
-            ], 404);
-        }
-    }
-
     public function show($id)
     {
         try {

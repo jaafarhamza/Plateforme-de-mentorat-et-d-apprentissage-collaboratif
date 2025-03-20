@@ -3,6 +3,8 @@
 /public/build
 /public/hot
 /public/storage
+/public/CUsersYoucodeOneDriveBureauPlateforme-de-mentorat-et-d-apprentissage-collaboratifPlateforme-de-mentoratstorageframeworkviews
+/public/CUsersYoucodeOneDriveBureauPlateforme-de-mentorat-et-d-apprentissage-collaboratifPlateforme-de-mentoratstoragelogs
 /storage/*.key
 /storage/pail
 /vendor
@@ -160,3 +162,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+/storage/
+

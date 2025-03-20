@@ -21,10 +21,6 @@ class CategoryService{
         return $this->categoryRepository->all();
     }
 
-    public function getCategoriesParent($id)
-    {
-        return $this->categoryRepository->getParentsWithChildren($id);
-    }
 
     public function getCategoryById($id)
     {
@@ -40,6 +36,8 @@ class CategoryService{
         ]);
         return $this->categoryRepository->create($data);
     }
+    
+    
 
     public function updateCategory($id, array $data)
     {
