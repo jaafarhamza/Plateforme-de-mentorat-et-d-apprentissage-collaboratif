@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 use App\Services\CourseService;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +27,7 @@ class CourseController extends Controller
                 'data' => $courses
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error getting courses: " . $e->getMessage());
+            Log::error("Error getting courses: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Failed to retrieve courses'
@@ -43,7 +44,7 @@ class CourseController extends Controller
                 'data' => $courses
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error getting courses by category: " . $e->getMessage());
+            Log::error("Error getting courses by category: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Failed to retrieve courses'
@@ -60,7 +61,7 @@ class CourseController extends Controller
                 'data' => $courses
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error getting courses by mentor: " . $e->getMessage());
+            Log::error("Error getting courses by mentor: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Failed to retrieve courses'
@@ -77,7 +78,7 @@ class CourseController extends Controller
                 'data' => $course
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error getting course: " . $e->getMessage());
+            Log::error("Error getting course: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Course not found'
@@ -95,7 +96,7 @@ class CourseController extends Controller
                 'data' => $course
             ], Response::HTTP_CREATED);
         } catch (Exception $e) {
-            \Log::error("Error creating course: " . $e->getMessage());
+            Log::error("Error creating course: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()
@@ -113,7 +114,7 @@ class CourseController extends Controller
                 'data' => $course
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error updating course: " . $e->getMessage());
+            Log::error("Error updating course: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()
@@ -130,7 +131,7 @@ class CourseController extends Controller
                 'message' => 'Course deleted successfully'
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error deleting course: " . $e->getMessage());
+            Log::error("Error deleting course: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()

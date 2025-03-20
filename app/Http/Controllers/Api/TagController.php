@@ -26,7 +26,7 @@ class TagController extends Controller
                 'data' => $tags
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error getting tags: " . $e->getMessage());
+            // \Log::error("Error getting tags: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Failed to retrieve tags'
@@ -43,7 +43,7 @@ class TagController extends Controller
                 'data' => $tag
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error getting tag: " . $e->getMessage());
+            // \Log::error("Error getting tag: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => 'Tag not found'
@@ -61,7 +61,7 @@ class TagController extends Controller
                 'data' => $tag
             ], Response::HTTP_CREATED);
         } catch (Exception $e) {
-            \Log::error("Error creating tag: " . $e->getMessage());
+            // \Log::error("Error creating tag: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()
@@ -79,7 +79,7 @@ class TagController extends Controller
                 'data' => $tag
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error updating tag: " . $e->getMessage());
+            // \Log::error("Error updating tag: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()
@@ -96,7 +96,7 @@ class TagController extends Controller
                 'message' => 'Tag deleted successfully'
             ], Response::HTTP_OK);
         } catch (Exception $e) {
-            \Log::error("Error deleting tag: " . $e->getMessage());
+            // \Log::error("Error deleting tag: " . $e->getMessage());
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()

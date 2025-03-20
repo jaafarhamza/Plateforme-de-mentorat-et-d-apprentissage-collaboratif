@@ -123,16 +123,10 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'providers' => [
-        // ...
-        App\Providers\RepositoryServiceProvider::class,
-        Illuminate\Filesystem\FilesystemServiceProvider::class,
-        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
-        Illuminate\Queue\QueueServiceProvider::class,
-        Illuminate\Encryption\EncryptionServiceProvider::class,
-        Illuminate\Cookie\CookieServiceProvider::class,
-        Illuminate\Session\SessionServiceProvider::class,
-
+'providers' => [
+        /*
+    * Laravel Framework Service Providers...
+    */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -155,6 +149,16 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laravel\Sanctum\SanctumServiceProvider::class,
+
+        // Laravel\Socialite\SocialiteServiceProvider::class,
+
+        App\Providers\AppServiceProvider::class,
+        // App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class, 
+        // App\Providers\EventServiceProvider::class,
+        // App\Providers\RouteServiceProvider::class,
+
     ],
 
     'aliases' => [
@@ -162,6 +166,10 @@ return [
         'Cookie'  => Illuminate\Support\Facades\Cookie::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Cache'   => Illuminate\Support\Facades\Cache::class,
+    ],
 
-    ]
+    'api' => [
+        \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+    ],
+    
 ];
