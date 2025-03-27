@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Foundation\MaintenanceModeManager;
+use App\Models\User;
+use Laravel\Cashier\Cashier;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->group(base_path('routes/api.php'));
+
+            Cashier::useCustomerModel(User::class);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\MentorController;
+use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\StatisticsController;
@@ -104,7 +105,7 @@ Route::prefix('mentors')->middleware('auth:sanctum')->group(function () {
     Route::get('/{id}/performance', [MentorController::class, 'getPerformance']);
 });
 
-// Student Space Routes
+// Student Routes
 Route::prefix('students')->middleware('auth:sanctum')->group(function () {
     // List courses enrolled by a student
     Route::get('/{id}/courses', [StudentController::class, 'listCourses']);
@@ -114,4 +115,16 @@ Route::prefix('students')->middleware('auth:sanctum')->group(function () {
 
     // Get student badges
     Route::get('/{id}/badges', [StudentController::class, 'getBadges']);
+});
+
+// Payment Routes
+Route::prefix('payments')->middleware('auth:sanctum')->group(function () {
+    // checkout
+    Route::get('/checkout', [PaymentController::class, 'checkout']);
+
+    // payment status
+    Route::get('/status/{id}', [PaymentController::class, 'status']);
+
+    // payment history
+    Route::get('/history', [PaymentController::class, 'history']);
 });
